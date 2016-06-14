@@ -9,6 +9,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
 
 <dom-module id="my-view1">
 
@@ -18,6 +19,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       :host {
         display: block;
         padding: 10px;
+
+        --top: #b9dd70;
+        --front: #83d281;
       }
       .card {
         box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
@@ -39,17 +43,50 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         text-align: center;
       }
       h1 {
-        font-size: 22px;
+        font-family: 'Oswald', sans-serif;
+        font-size: 60px;
+        letter-spacing: 5px;
         margin: 16px 0;
-        color: #212121;
+        color: #83d281;
+        margin: 0;
+        margin-bottom: 100px;
+
+        background: -webkit-linear-gradient(var(--top), var(--front));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
       }
+      .center-content {
+        height: 100vh;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+
+
+      .btn-googleplus{background-color:#cd3d2b;color:#fff}
+      paper-button { 
+        text-transform: none; 
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+      }
+      paper-button > span { flex:1; }
     </style>
 
-    <div class="card">
-      <div class="circle">1</div>
-      <h1>View One</h1>
-      <p>Ut labores minimum atomorum pro. Laudem tibique ut has.
-      <p>Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit.</p>
+    <div class="center-content">
+      
+      <div>
+        <h1>Money Counter</h1>     
+
+        <a href="/view2">test</a>
+
+        <paper-button class="btn-googleplus">
+          <iron-icon icon="icons:googleplus2"></iron-icon>
+          <span>Login with Google</span>
+        </paper-button>
+      </div>
     </div>
 
   </template>
