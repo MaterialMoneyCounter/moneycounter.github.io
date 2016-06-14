@@ -78,24 +78,44 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <div class="center-content">
       
       <div>
+
         <h1>Money Counter</h1>     
+        <firebase-app auth-domain="money-counter.firebaseapp.com"
+          database-url="https://money-counter.firebaseapp.com"
+          api-key="AIzaSyBn4pHSh9Dw68Nq7EJ8y_QOJ3e6y6ndF5E">
+        </firebase-app>
+        <firebase-auth id="auth" user="{{user}}" provider="google" on-error="handleError">
+        </firebase-auth>
 
-        <a href="/view2">test</a>
-
-        <paper-button class="btn-googleplus">
+        <paper-button class="btn-googleplus" on-tap="googleLogin">
           <iron-icon icon="icons:googleplus2"></iron-icon>
           <span>Login with Google</span>
         </paper-button>
+
       </div>
     </div>
 
   </template>
 
+
+
   <script>
 
     Polymer({
 
-      is: 'my-view1'
+      is: 'my-view1',
+
+      googleLogin: function() {
+        this.$.auth.signInWithPopup()
+          .then(function(response) {
+            // successful authentication response here
+            console.log(response.user);
+          })
+          .catch(function(error) {
+            // unsuccessful authentication response here
+          });
+      }
+
 
     });
 
